@@ -1,8 +1,6 @@
 
 # Breadcrumb Modification for Website
 
-## Overview
-The modifications include:
 - Adding "All Digital Resources" to the breadcrumb structure.
 - Truncating long titles to 20 characters.
 - Adding spacing and a custom icon in place of the caret.
