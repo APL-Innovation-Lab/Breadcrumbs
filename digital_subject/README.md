@@ -1,7 +1,5 @@
 
-# Breadcrumb Modification for Drupal Website
-
-This README outlines the steps and code required to modify the breadcrumb trail on a Drupal-based website, focusing on incorporating specific design and functionality elements.
+# Breadcrumb Modification for Website
 
 ## Overview
 The modifications include:
@@ -55,6 +53,4 @@ document.querySelectorAll('.breadcrumb li').forEach(function(elem) {
 ```
 
 ## Implementation Notes
-- Adjust the paths and selectors according to your website's structure.
-- Test these changes on a staging site before applying to the live site.
-- Ensure compatibility across different browsers and devices.
+- Adjust the paths and selectors according to the website's structure.
