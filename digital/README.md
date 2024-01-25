@@ -1,42 +1,54 @@
 
-## Breadcrumb Structure
-For `Digital Resources`, the breadcrumb pattern is structured to reflect the hierarchy and navigation flow. The pattern follows this structure:
+# Breadcrumb Modification for Website
 
-`Home` > `Digital Resource Subjects` > `All Digital Resources`
+- Adding "All Digital Resources" to the breadcrumb structure.
+- Truncating long titles to 20 characters.
+- Adding spacing and a custom icon in place of the caret.
+- Responsive design adjustments for mobile view.
 
-### Components
-- **Home**: The first part of the breadcrumb, linking to the site's home page.
-- **Digital Resource Subjects**: The second part, representing the category or subject area of digital resources. It links to `/digital/subjects`.
-- **All Digital Resources**: The final part, indicating the current page or section the user is viewing.
+## CSS Changes
+Add the following CSS to your theme's stylesheet to incorporate the spacing, custom icon, and responsive design.
 
-### HTML Implementation
-To implement this breadcrumb pattern, use the following HTML structure:
+```css
+.breadcrumb {
+  padding-top: 15px; /* adds padding above the breadcrumb */
+}
 
-```html
-<div class="apl breadcrumbs">
-  <a href="/">Home</a> > 
-  <a href="/digital/subjects">Digital Resource Subjects</a> > 
-  {{ name }}
-</div>
+.breadcrumb > .delimiter {
+  margin: 0 5px; /* extra space around the caret */
+}
+
+/* Custom icon for the caret */
+.breadcrumb > .delimiter:before {
+  content: url('path_to_your_custom_icon'); /* replace with your icon path */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 767px) {
+  .breadcrumb {
+    /* Adjustments for mobile view */
+  }
+}
 ```
 
-In this structure, `{{ name }}` should be dynamically replaced with the title of the current digital resource or section being viewed.
+## JavaScript for Title Truncation
+Add this JavaScript code to handle the truncation of long titles in the breadcrumb. Ensure this script runs after the DOM is fully loaded.
 
-### Example
-An example of this breadcrumb in action would be:
-
-`Home` > `Digital Resource Subjects` > `All Digital Resources`
-
-Represented in HTML as:
-
-```html
-<div class="apl breadcrumbs">
-  <a href="/">Home</a> > 
-  <a href="/digital/subjects">Digital Resource Subjects</a> > 
-  All Digital Resources
-</div>
+```javascript
+document.querySelectorAll('.breadcrumb li').forEach(function(elem) {
+  let text = elem.innerText;
+  if (text.length > 20) {
+    // Truncate and stop at the end of a word
+    text = text.split(' ').reduce((acc, word) => {
+      if ((acc + word).length <= 20) {
+        return acc + ' ' + word;
+      }
+      return acc;
+    }) + '...';
+    elem.innerText = text;
+  }
+});
 ```
 
 ## Implementation Notes
-- Ensure that the breadcrumb is consistently implemented across all relevant pages within the Digital Resources section.
-- Verify that all links in the breadcrumb are functioning correctly and lead to the appropriate pages.
+- Adjust the paths and selectors according to the website's structure.
