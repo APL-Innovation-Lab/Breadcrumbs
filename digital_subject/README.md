@@ -16,7 +16,7 @@ To implement this breadcrumb pattern, use the following HTML structure:
 For the All Digital Resources page:
 
 ```html
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">All Digital Resources</li>
@@ -25,10 +25,10 @@ For the All Digital Resources page:
 </nav>
 ```
 
-For other Digital Resources pages:
+For other Digital Resources Subject pages:
 
 ```html
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
@@ -40,40 +40,6 @@ For other Digital Resources pages:
 
 In these structures, `{{ name }}` should be dynamically replaced with the title of the current digital resource or section being viewed.
 
-
-### Twig Templates
-Update the Twig templates for the Digital Resources pages:
-
-For the All Digital Resources page:
-
-```twig
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
-  <ol class="breadcrumbs">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">All Digital Resources</li>
-    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
-  </ol>
-</nav>
-<div class="digital-resources-title grid-offset-1 grid-col-10">
-  <h1>{{ name }}</h1>
-</div>
-```
-
-For other Digital Resources pages:
-
-```twig
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
-  <ol class="breadcrumbs">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
-    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
-  </ol>
-</nav>
-<div class="digital-resources-title grid-offset-1 grid-col-10">
-  <h1>{{ name }}</h1>
-</div>
-```
 
 ## Implementation Notes
 - Ensure that the breadcrumb and title are prominently displayed near the top of each page within the Digital Resources section.
