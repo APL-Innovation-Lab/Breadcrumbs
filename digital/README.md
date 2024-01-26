@@ -1,54 +1,33 @@
 
-# Breadcrumb Modification for Website
+## Breadcrumb Structure for Individual Digital Resources
 
-- Adding "All Digital Resources" to the breadcrumb structure.
-- Truncating long titles to 20 characters.
-- Adding spacing and a custom icon in place of the caret.
-- Responsive design adjustments for mobile view.
+The breadcrumb pattern for individual `Digital Resources` pages is updated to reflect the hierarchy and navigation flow using the `<nav>` structure. The pattern follows this structure:
 
-## CSS Changes
-Add the following CSS to your theme's stylesheet to incorporate the spacing, custom icon, and responsive design.
+`Home` > `All Digital Resources` > `Subjects` > `title`
 
-```css
-.breadcrumb {
-  padding-top: 15px; /* adds padding above the breadcrumb */
-}
+### Components
+- **Home**: The first part of the breadcrumb, linking to the site's home page.
+- **All Digital Resources**: The second part, linking to the comprehensive list of digital resources. It links to `/digital/all`.
+- **Subjects**: The third part, representing the category or subject area of digital resources. It links to `/digital/subjects`.
+- **title**: The final part, dynamically representing the title of the current digital resource or section being viewed.
 
-.breadcrumb > .delimiter {
-  margin: 0 5px; /* extra space around the caret */
-}
+### HTML Implementation
 
-/* Custom icon for the caret */
-.breadcrumb > .delimiter:before {
-  content: url('path_to_your_custom_icon'); /* replace with your icon path */
-}
+For individual Digital Resources pages:
 
-/* Responsive design for mobile */
-@media (max-width: 767px) {
-  .breadcrumb {
-    /* Adjustments for mobile view */
-  }
-}
+```html
+<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
+    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
 ```
 
-## JavaScript for Title Truncation
-Add this JavaScript code to handle the truncation of long titles in the breadcrumb. Ensure this script runs after the DOM is fully loaded.
-
-```javascript
-document.querySelectorAll('.breadcrumb li').forEach(function(elem) {
-  let text = elem.innerText;
-  if (text.length > 20) {
-    // Truncate and stop at the end of a word
-    text = text.split(' ').reduce((acc, word) => {
-      if ((acc + word).length <= 20) {
-        return acc + ' ' + word;
-      }
-      return acc;
-    }) + '...';
-    elem.innerText = text;
-  }
-});
-```
+In this structure, `{{ title }}` should be dynamically replaced with the title of the current digital resource or section being viewed.
 
 ## Implementation Notes
-- Adjust the paths and selectors according to the website's structure.
+- Ensure that the breadcrumb and title are prominently displayed near the top of each individual Digital Resources page.
+- Test all links in the breadcrumb to confirm correct navigation.
