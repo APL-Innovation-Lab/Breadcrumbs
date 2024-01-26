@@ -1,6 +1,7 @@
 
-## Breadcrumb Structure
-For `Digital Resources`, the breadcrumb pattern is structured to reflect the hierarchy and navigation flow. The pattern follows this structure:
+## Breadcrumb Structure for Digital Resource Subjects
+
+For `Digital Resource Subjects`, the breadcrumb pattern is updated to reflect the hierarchy and navigation flow using the `<nav>` structure. The pattern follows this structure:
 
 `Home` > `Digital Resource Subjects` > `All Digital Resources`
 
@@ -12,31 +13,68 @@ For `Digital Resources`, the breadcrumb pattern is structured to reflect the hie
 ### HTML Implementation
 To implement this breadcrumb pattern, use the following HTML structure:
 
+For the All Digital Resources page:
+
 ```html
-<div class="apl breadcrumbs">
-  <a href="/">Home</a> > 
-  <a href="/digital/subjects">Digital Resource Subjects</a> > 
-  {{ name }}
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All Digital Resources</li>
+    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
+  </ol>
+</nav>
+```
+
+For other Digital Resources pages:
+
+```html
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
+    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
+  </ol>
+</nav>
+```
+
+In these structures, `{{ name }}` should be dynamically replaced with the title of the current digital resource or section being viewed.
+
+
+### Twig Templates
+Update the Twig templates for the Digital Resources pages:
+
+For the All Digital Resources page:
+
+```twig
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All Digital Resources</li>
+    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
+  </ol>
+</nav>
+<div class="digital-resources-title grid-offset-1 grid-col-10">
+  <h1>{{ name }}</h1>
 </div>
 ```
 
-In this structure, `{{ name }}` should be dynamically replaced with the title of the current digital resource or section being viewed.
+For other Digital Resources pages:
 
-### Example
-An example of this breadcrumb in action would be:
-
-`Home` > `Digital Resource Subjects` > `All Digital Resources`
-
-Represented in HTML as:
-
-```html
-<div class="apl breadcrumbs">
-  <a href="/">Home</a> > 
-  <a href="/digital/subjects">Digital Resource Subjects</a> > 
-  All Digital Resources
+```twig
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
+    <li class="breadcrumb-item"><a href="/digital/subjects">Subjects</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
+  </ol>
+</nav>
+<div class="digital-resources-title grid-offset-1 grid-col-10">
+  <h1>{{ name }}</h1>
 </div>
 ```
 
 ## Implementation Notes
-- Ensure that the breadcrumb is consistently implemented across all relevant pages within the Digital Resources section.
-- Verify that all links in the breadcrumb are functioning correctly and lead to the appropriate pages.
+- Ensure that the breadcrumb and title are prominently displayed near the top of each page within the Digital Resources section.
+- Test all links in the breadcrumb to confirm correct navigation.
