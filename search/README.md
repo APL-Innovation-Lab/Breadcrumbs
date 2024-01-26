@@ -1,29 +1,74 @@
 
 # Breadcrumb Pattern for Search Results Page
 
-The breadcrumb pattern for the search results page is designed to enhance user experience by offering a clear and concise navigation path. The pattern follows this structure:
+This document outlines the updated breadcrumb navigation pattern for the `search_results` content type on the site, incorporating the latest HTML and CSS standards.
 
-`Home` > `Website Search Results`
+## Breadcrumb Structure
+The updated breadcrumb pattern for `search_results` enhances user navigation by providing a clear path back to the homepage:
+
+`[Home](/)` > `Website Search Results`
 
 ### Components
-- **Home**: This is the first part of the breadcrumb and serves as the anchor to the main page. It is a clickable link that directs users to the home page.
-- **Website Search Results**: This represents the search results page. It is the second and final part of the breadcrumb trail, indicating the current location of the user within the site.
+- **[Home](/)**: This is the first part of the breadcrumb, linking back to the site's homepage.
+- **Website Search Results**: This represents the title of the current page, indicating that the user is viewing search results.
 
-### Example
-Consider a user performing a search on the site. The breadcrumb for the search results page will be displayed as:
-
-`Home` > `Website Search Results`
-
-Where "Home" is a hyperlink to the main page, and "Website Search Results" indicates the current page.
-
-### HTML Code Example
-The HTML structure for the breadcrumb navigation might look like this:
+### HTML Markup
+Implement the breadcrumb using the following HTML structure:
 
 ```html
-<div class="apl breadcrumbs"><a href="/">Home</a> &gt; Website Search Results</div>
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Website Search Results</li>
+  </ol>
+</nav>
+```
+
+### CSS
+Apply the following CSS to style the breadcrumbs:
+
+```css
+ol.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+ol.breadcrumbs li {
+    margin-right: 10px; /* Spacing between breadcrumb items */
+}
+
+ol.breadcrumbs li::after {
+    content: url('/library/ii/breadcrumb_arrow.svg'); /* Arrow image */
+    margin-left: 10px;
+}
+
+ol.breadcrumbs li:last-child::after {
+    content: none; /* No arrow after the last item */
+}
+
+nav.grid-offset-1.grid-col-10 {
+    padding-top: 2px;
+}
+```
+
+### Twig Template
+Update the Twig template for the Search Results page:
+
+```twig
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Website Search Results</li>
+  </ol>
+</nav>
+<div class="search-results-title grid-offset-1 grid-col-10">
+  <h1>{{ title }}</h1>
+</div>
 ```
 
 ## Implementation Notes
-- The breadcrumb pattern should be consistently implemented on the search results page.
-- Ensure that the breadcrumb is prominently displayed near the top of the page, allowing easy navigation for users.
-- The link in the breadcrumb should be tested to confirm that it navigates correctly back to the main page.
+- Ensure that the breadcrumb and title are displayed prominently at the top of the Search Results page.
+- Test the breadcrumb link to confirm correct navigation back to the homepage.
+- Apply this updated pattern consistently across the Search Results content type for a uniform user experience.
