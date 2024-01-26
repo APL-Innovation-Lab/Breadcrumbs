@@ -1,10 +1,10 @@
 
 # Breadcrumb Pattern for AHC Page
 
-This document describes the breadcrumb navigation pattern implemented for the `ahc_page` content type on site. Breadcrumbs are an essential part of the site's navigation strategy, providing users with a way to trace the path back to their starting point.
+This document describes the updated breadcrumb navigation pattern implemented for the `ahc_page` content type on the site, incorporating the latest HTML and CSS standards used in the library's web pages.
 
 ## Breadcrumb Structure
-The breadcrumb pattern for `ahc_page` is designed to enhance user experience by providing a clear and concise navigation path. The pattern follows this structure:
+The updated breadcrumb pattern for `ahc_page` is designed to enhance user experience by providing a clear and concise navigation path, following the latest design:
 
 `[AHC Home](/ahc)` > `[node:title]`
 
@@ -12,17 +12,63 @@ The breadcrumb pattern for `ahc_page` is designed to enhance user experience by 
 - **[AHC Home](/ahc)**: This is the first part of the breadcrumb and serves as the anchor to the Austin History Center (AHC) main page. It is a clickable link that directs users to `/ahc`.
 - **[node:title]**: This represents the title of the current page. It is the second and final part of the breadcrumb trail, indicating the current location of the user within the site.
 
-### Example
-Consider the following URL: `https://library.austintexas.gov/ahc/research`. The breadcrumb for this page will be displayed as:
+### HTML Markup
+Use the following HTML structure to implement the breadcrumb:
 
-`[AHC Home](/ahc)` > `Research`
+```html
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/ahc">AHC Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+```
 
-Where "AHC Home" is a hyperlink to `/ahc`, and "Research" is the title of the current page.
+### CSS
+Apply the following CSS to style the breadcrumbs:
+
+```css
+ol.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+ol.breadcrumbs li {
+    margin-right: 10px; /* Spacing between breadcrumb items */
+}
+
+ol.breadcrumbs li::after {
+    content: url('/library/ii/breadcrumb_arrow.svg'); /* Arrow image */
+    margin-left: 10px;
+}
+
+ol.breadcrumbs li:last-child::after {
+    content: none; /* No arrow after the last item */
+}
+
+nav.grid-offset-1.grid-col-10 {
+    padding-top: 2px;
+}
+```
+
+### Twig Template
+Replace the old Twig template with the new version:
+
+```twig
+<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+  <ol class="breadcrumbs">
+    <li class="breadcrumb-item"><a href="/ahc">AHC Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+<div class="ahc-title grid-offset-1 grid-col-10">
+  <h1>{{ title }}</h1>
+</div>
+```
 
 ## Implementation Notes
-- The breadcrumb pattern should be implemented consistently across all `ahc_page` content types.
-- Ensure that the breadcrumb is prominently displayed near the top of the page, allowing easy navigation for users.
-- The link in the breadcrumb should be tested to confirm that it correctly navigates back to the AHC main page.
-
-## Conclusion
-The breadcrumb pattern for `ahc_page` is a simple yet effective navigation tool that aids users in understanding their location within the site and allows for easy backtracking to the AHC main page.
+- Ensure that the breadcrumb and title are prominently displayed near the top of the page.
+- Test the breadcrumb link to confirm correct navigation.
+- Implement this pattern consistently across all `ahc_page` content types for uniform user experience.
