@@ -20,7 +20,7 @@ The breadcrumb trail for the Events Calendar page is as follows:
 - The HTML structure for the breadcrumb should be as follows:
 
 ```html
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+<nav aria-label="Breadcrumbs" class="grid-offset-1 grid-col-10">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/events">Events</a></li>
