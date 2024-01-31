@@ -14,7 +14,7 @@ For `Library Locations` pages, a breadcrumb pattern is established to navigate t
 To apply this breadcrumb pattern for individual Library Location pages, utilize the following HTML code:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/locations">Locations</a></li>
