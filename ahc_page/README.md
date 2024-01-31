@@ -31,10 +31,36 @@ The breadcrumb HTML structure is as follows:
 A Twig template override (`block--views-block--ahc-page-block-1.html.twig`) was created, based on `block.html.twig`, and placed in `aplpa/templates/block`.
 
 ## JSON-LD Structured Data
-We have added JSON-LD structured data to support schema.org breadcrumbs. This addition is  for improving search engine results and providing richer breadcrumbs in those results.
+We have added JSON-LD structured data to support schema.org breadcrumbs. This addition is for improving search engine results and providing richer breadcrumbs in those results.
 
 ### Implementation
-The JSON-LD is specifically tailored for AHC Page content and meets schema.org's breadcrumb guidelines. This structured data is implemented in the `block--views-block--ahc-page-block-1.html.twig` file.
+The JSON-LD is specifically tailored for AHC Page content and meets schema.org's breadcrumb guidelines. This structured data is implemented in the `block--views-block--ahc-page-block-1.html.twig` file:
+
+```json
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "https://library.austintexas.gov/ahc",
+        "name": "AHC Home"
+      }
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "{{ url('<current>') }}",
+        "name": "{{ page_title }}"
+      }
+    }
+  ]
+}
+
+  </script>
+```
 
 ### Preprocess Function
 A preprocess function added to `aplpa.theme` makes the page title available for the JSON-LD structured data in the Twig template.
