@@ -16,7 +16,7 @@ The breadcrumb pattern for individual `Digital Resources` pages is updated to re
 For individual Digital Resources pages:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
