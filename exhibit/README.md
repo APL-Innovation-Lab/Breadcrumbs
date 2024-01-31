@@ -14,7 +14,7 @@ For the `Exhibits Page` on a Drupal-based website, a specific breadcrumb pattern
 To implement this breadcrumb pattern for the Exhibits Page, use the following HTML code:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/events">Events</a></li>
