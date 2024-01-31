@@ -15,7 +15,7 @@ The breadcrumb pattern for individual `Event` pages is designed to provide users
 For individual Event pages:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs grid-col-10 grid-offset-1">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs grid-col-10 grid-offset-1">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/events">Events</a></li>
