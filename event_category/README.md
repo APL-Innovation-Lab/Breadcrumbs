@@ -14,7 +14,7 @@ For `Event Categories`, the breadcrumb pattern is tailored to display the naviga
 To realize this breadcrumb structure for specific Event Category pages, use the following HTML code:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/events">Events</a></li>
