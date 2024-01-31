@@ -16,7 +16,7 @@ The updated breadcrumb pattern for `search_results` enhances user navigation by 
 Implement the breadcrumb using the following HTML structure:
 
 ```html
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+<nav aria-label="Breadcrumbs" class="grid-offset-1 grid-col-10">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Website Search Results</li>
