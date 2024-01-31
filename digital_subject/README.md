@@ -16,7 +16,7 @@ To implement this breadcrumb pattern, use the following HTML structure:
 For the All Digital Resources page:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">All Digital Resources</li>
@@ -28,7 +28,7 @@ For the All Digital Resources page:
 For other Digital Resources Subject pages:
 
 ```html
-<nav aria-label="Breadcrumb" class="nav--breadcrumbs">
+<nav aria-label="Breadcrumbs" class="nav--breadcrumbs">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/digital/all">All Digital Resources</a></li>
