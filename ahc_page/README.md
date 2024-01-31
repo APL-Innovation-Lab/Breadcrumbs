@@ -19,7 +19,7 @@ The breadcrumb pattern for `ahc_page` follows a clear and concise navigation pat
 The breadcrumb HTML structure is as follows:
 
 ```html
-<nav aria-label="Breadcrumb" class="grid-offset-1 grid-col-10">
+<nav aria-label="Breadcrumbs" class="grid-offset-1 grid-col-10">
   <ol class="breadcrumbs">
     <li class="breadcrumb-item"><a href="/ahc">AHC Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
